@@ -5,11 +5,9 @@ long parseInput(char* input){
     char* curr = input;
 
     while(*curr != '\0' || *curr !='\n'){
-
         if (*curr >= '0' && *curr <= '9'){
             time = time * 10 + (*curr - '0');
         }
-
         curr++;
     }
 
