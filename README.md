@@ -12,10 +12,10 @@ The Win32API, user32.dll and more specifically ntdll.dll exsist as wrappers/abst
 
 ## Refrances
 ### General project inspiration
-https://nullprogram.com/blog/2016/01/31/
-https://youtu.be/IbibjkI1kIs?si=UUizI0Dt8HO7Xdyp
+* https://nullprogram.com/blog/2016/01/31/
+* https://youtu.be/IbibjkI1kIs?si=UUizI0Dt8HO7Xdyp
 ### inline assembly guide i used for g++
-https://www.ibiblio.org/gferg/ldp/GCC-Inline-Assembly-HOWTO.html#toc6
+* https://www.ibiblio.org/gferg/ldp/GCC-Inline-Assembly-HOWTO.html#toc6
 ### Windows syscalls and documentation
-https://j00ru.vexillium.org/syscalls/nt/64/
-https://ntdoc.m417z.com/ntwritefile (not just for ntwritefile)
+* https://j00ru.vexillium.org/syscalls/nt/64/
+* https://ntdoc.m417z.com/ntwritefile (not just for ntwritefile)
