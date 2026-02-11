@@ -1,4 +1,6 @@
-This is a project inspired by [this project](https://youtu.be/IbibjkI1kIs?si=UUizI0Dt8HO7Xdyp) but implemented for Windows. 
+# Windows-Sleep-With-Direct-Syscalls
+I have put together a sleep binary implemented with direct Windows syscalls through inline asm. 
+This experiemnt was inspired by [this project](https://youtu.be/IbibjkI1kIs?si=UUizI0Dt8HO7Xdyp) but implemented for Windows. 
 
 
 ## Windows System calls 
