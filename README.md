@@ -1,5 +1,5 @@
 # Windows-Sleep-With-Direct-Syscalls
-I have put together a sleep binary implemented with direct Windows syscalls through inline asm. 
+I have put together a sleep binary implemented with direct Windows syscalls through inline asm to avoid using the win32 api or the C standard library.
 This experiemnt was inspired by [this project](https://youtu.be/IbibjkI1kIs?si=UUizI0Dt8HO7Xdyp) but implemented for Windows. 
 
 
