@@ -11,3 +11,10 @@ typedef struct _IO_STATUS_BLOCK {
   };
   ULONG_PTR Information;
 } IO_STATUS_BLOCK, *PIO_STATUS_BLOCK;
+
+
+
+// syscall externs
+extern "C" NTSTATUS NtWriteFile_SYSCALL(HANDLE, HANDLE, void*, void*, IO_STATUS_BLOCK*,
+                                        void*, ULONG, void*, ULONG*);
+
