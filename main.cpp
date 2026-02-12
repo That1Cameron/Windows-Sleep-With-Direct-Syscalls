@@ -1,4 +1,4 @@
-#include "syscalls.cpp"
+#include "types.h"
 
 long parseInput(char* input){
     long time = 0;

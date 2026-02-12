@@ -12,6 +12,7 @@ The Win32API, user32.dll and more specifically ntdll.dll exsist as wrappers/abst
 
 ## Refrances
 ### General project inspiration
+* https://nostarch.com/evading-edr
 * https://nullprogram.com/blog/2016/01/31/
 * https://youtu.be/IbibjkI1kIs?si=UUizI0Dt8HO7Xdyp
 ### inline assembly guide i used for g++
