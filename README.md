@@ -16,7 +16,9 @@ The Win32API, user32.dll and more specifically ntdll.dll exsist as wrappers/abst
 * https://nullprogram.com/blog/2016/01/31/
 * https://youtu.be/IbibjkI1kIs?si=UUizI0Dt8HO7Xdyp
 
-### Windows syscalls and documentation
+### Windows documentation
 * https://j00ru.vexillium.org/syscalls/nt/64/
 * https://learn.microsoft.com/en-us/cpp/build/x64-calling-convention?view=msvc-170
 * https://ntdoc.m417z.com/ntwritefile (not just for ntwritefile)
+* https://learn.microsoft.com/en-us/windows/win32/winprog/windows-data-types
+* https://mohamed-fakroud.gitbook.io/red-teamings-dojo/windows-internals/peb (proc sructure and PEB offset)
