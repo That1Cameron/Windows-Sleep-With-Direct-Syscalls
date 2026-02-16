@@ -14,16 +14,18 @@ long parseInput(char* input){
     return time;
 }
 
-//int main(int argc, char* argv[]){
-//int wmain(int argc, wchar_t *argv[]);
+
 int wmain(int argc, char *argv[]){
     PEB* peb = getPEB();
     HANDLE stdOutHandle = peb->ProcessParameters->StandardOutput;
     IO_STATUS_BLOCK iosb;
-    
+    UNICODE_STRING ip = peb->ProcessParameters->ImagePathName;
+    UNICODE_STRING cl = peb->ProcessParameters->CommandLine;
     if(argc != 2){
-        char helpMsg[] = "Usage ./sleep <number>\nThis will pause for <number> seconds";
+        char helpMsg[] = "\nUsage ./sleep <number>\nThis will pause for <number> seconds\n";
         ntWriteFile_SYSCALL(stdOutHandle, 0, 0, 0, &iosb, helpMsg, sizeof(helpMsg) - 1, 0, 0);
+        ntWriteFile_SYSCALL(stdOutHandle, 0, 0, 0, &iosb, cl.Buffer, cl.Length - 1, 0, 0);
+        ntWriteFile_SYSCALL(stdOutHandle, 0, 0, 0, &iosb, ip.Buffer, ip.Length - 1, 0, 0);
         return 1;
     }
 
@@ -36,6 +38,8 @@ int wmain(int argc, char *argv[]){
     return 0;
 }
 
+
+// This is a bandaid solution, need to replace standard wmain for asm start call
 extern "C" void start(){
     char** argv;
     while (wmain(1, argv)) {}

@@ -6,9 +6,22 @@ typedef ULONGLONG* PULONGLONG;
 typedef void* PVOID;
 typedef unsigned long long   ULONG_PTR;
 typedef unsigned char BYTE;
-typedef void* UNICODE_STRING;
+typedef unsigned short USHORT;
+typedef wchar_t WCHAR;
+typedef WCHAR* PWSTR;
 
 // structs
+typedef struct _UNICODE_STRING {
+    USHORT Length;
+    USHORT MaximumLength;
+    PWSTR  Buffer;
+} UNICODE_STRING, * PUNICODE_STRING;
+
+typedef struct _CURDIR {
+    UNICODE_STRING DosPath;
+    HANDLE Handle;
+} CURDIR, * PCURDIR;
+
 typedef struct _IO_STATUS_BLOCK {
   union {
     NTSTATUS Status;
@@ -18,8 +31,7 @@ typedef struct _IO_STATUS_BLOCK {
 } IO_STATUS_BLOCK, *PIO_STATUS_BLOCK;
 
 
-typedef struct _RTL_USER_PROCESS_PARAMETERS
-{
+typedef struct _RTL_USER_PROCESS_PARAMETERS{
     ULONG MaximumLength;
     ULONG Length;
 
@@ -32,7 +44,7 @@ typedef struct _RTL_USER_PROCESS_PARAMETERS
     HANDLE StandardOutput;
     HANDLE StandardError;
 
-    PVOID CurrentDirectory;
+    CURDIR CurrentDirectory;
     UNICODE_STRING DllPath;
     UNICODE_STRING ImagePathName;
     UNICODE_STRING CommandLine;
@@ -95,7 +107,7 @@ typedef struct _PEB {
 
 // syscall externs
 extern "C" NTSTATUS ntWriteFile_SYSCALL(HANDLE, HANDLE, void*, void*, IO_STATUS_BLOCK*,
-                                        void*, ULONG, void*, ULONG*);
+                                        PVOID, ULONG, void*, ULONG*);
 
 extern "C" PEB* getPEB();
 
