@@ -1,5 +1,5 @@
 section .text
-global ntWriteFile_syscall
+global ntWriteFile_SYSCALL
 global getPEB
 
 ntWriteFile_SYSCALL:

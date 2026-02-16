@@ -17,16 +17,13 @@ long parseInput(char* input){
 //int main(int argc, char* argv[]){
 //int wmain(int argc, wchar_t *argv[]);
 int wmain(int argc, char *argv[]){
-    HANDLE stdOutHandle;
     PEB* peb = getPEB();
+    HANDLE stdOutHandle = peb->ProcessParameters->StandardOutput;
+    IO_STATUS_BLOCK iosb;
     
     if(argc != 2){
         char helpMsg[] = "Usage ./sleep <number>\nThis will pause for <number> seconds";
-
-
-        
-
-        NtWriteFile_SYSCALL(stdOutHandle, 0, 0, 0, &iosb, helpMsg, sizeof(helpMsg) - 1, 0, 0);
+        ntWriteFile_SYSCALL(stdOutHandle, 0, 0, 0, &iosb, helpMsg, sizeof(helpMsg) - 1, 0, 0);
         return 1;
     }
 
@@ -37,4 +34,9 @@ int wmain(int argc, char *argv[]){
     //sleep(seconds);
     
     return 0;
+}
+
+extern "C" void start(){
+    char** argv;
+    while (wmain(1, argv)) {}
 }
