@@ -25,7 +25,6 @@ int wmain(int argc, char *argv[]){
         char helpMsg[] = "\nUsage ./sleep <number>\nThis will pause for <number> seconds\n";
         ntWriteFile_SYSCALL(stdOutHandle, 0, 0, 0, &iosb, helpMsg, sizeof(helpMsg) - 1, 0, 0);
         ntWriteFile_SYSCALL(stdOutHandle, 0, 0, 0, &iosb, cl.Buffer, cl.Length - 1, 0, 0);
-        ntWriteFile_SYSCALL(stdOutHandle, 0, 0, 0, &iosb, ip.Buffer, ip.Length - 1, 0, 0);
         return 1;
     }
 
