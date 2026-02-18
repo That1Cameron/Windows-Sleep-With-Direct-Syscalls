@@ -10,7 +10,7 @@ typedef unsigned short USHORT;
 typedef wchar_t WCHAR;
 typedef WCHAR* PWSTR;
 
-// structs
+// structs a lot have been made by refrencing the types in ms docs and https://ntdoc.m417z.com/
 typedef struct _UNICODE_STRING {
     USHORT Length;
     USHORT MaximumLength;
@@ -30,7 +30,7 @@ typedef struct _IO_STATUS_BLOCK {
   ULONG_PTR Information;
 } IO_STATUS_BLOCK, *PIO_STATUS_BLOCK;
 
-
+//https://ntdoc.m417z.com/
 typedef struct _RTL_USER_PROCESS_PARAMETERS{
     ULONG MaximumLength;
     ULONG Length;

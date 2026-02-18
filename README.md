@@ -10,7 +10,7 @@ The windows systemcall architecture is a bit different so I decided to forgo the
 The Win32API, user32.dll and more specifically ntdll.dll exsist as wrappers/abstractions so that microsoft can change the system call without breaking existing products, my opinion could go either way on that design philosophy.
 
 
-## Refrances
+## References
 ### General project inspiration
 * https://nostarch.com/evading-edr
 * https://nullprogram.com/blog/2016/01/31/
