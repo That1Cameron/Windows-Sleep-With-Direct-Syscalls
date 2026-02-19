@@ -9,6 +9,8 @@ typedef unsigned char BYTE;
 typedef unsigned short USHORT;
 typedef wchar_t WCHAR;
 typedef WCHAR* PWSTR;
+typedef BYTE BOOLEAN;
+typedef unsigned long DWORD;
 
 // structs a lot have been made by refrencing the types in ms docs and https://ntdoc.m417z.com/
 typedef struct _UNICODE_STRING {
@@ -29,6 +31,14 @@ typedef struct _IO_STATUS_BLOCK {
   };
   ULONG_PTR Information;
 } IO_STATUS_BLOCK, *PIO_STATUS_BLOCK;
+
+typedef union _LARGE_INTEGER {
+  struct{
+    unsigned long b;
+    long a;
+  } c;
+  long long QuadPart;
+} LARGE_INTEGER;
 
 //https://ntdoc.m417z.com/
 typedef struct _RTL_USER_PROCESS_PARAMETERS{
@@ -110,4 +120,6 @@ extern "C" NTSTATUS ntWriteFile_SYSCALL(HANDLE, HANDLE, void*, void*, IO_STATUS_
                                         PVOID, ULONG, void*, ULONG*);
 
 extern "C" PEB* getPEB();
+
+extern "C" NTSTATUS ntDelayExecution_SYSCALL(BOOLEAN Alertable, LARGE_INTEGER* DelayInterval);
 

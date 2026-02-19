@@ -1,10 +1,17 @@
 section .text
 global ntWriteFile_SYSCALL
+global ntDelayExecution_SYSCALL
 global getPEB
 
 ntWriteFile_SYSCALL:
     mov r10, rcx
     mov rax, 0x08
+    syscall
+    ret
+
+ntDelayExecution_SYSCALL:
+    mov r10, rcx
+    mov rax, 0x34
     syscall
     ret
 
