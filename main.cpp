@@ -1,4 +1,13 @@
 #include "types.h"
+
+char* getArg() {
+    // skip to end of path with quote
+
+    // continue until num char
+
+    // return addr
+}
+
 NTSTATUS sleep(int time){
     LARGE_INTEGER nano;
     nano.QuadPart = -(LONGLONG)time * 10000000;;
@@ -30,7 +39,7 @@ int wmain(int argc, char *argv[]){
     if(argc != 2){
         char helpMsg[] = "\nUsage ./sleep <number>\nThis will pause for <number> seconds\n";
         ntWriteFile_SYSCALL(stdOutHandle, 0, 0, 0, &iosb, helpMsg, sizeof(helpMsg) - 1, 0, 0);
-        ntWriteFile_SYSCALL(stdOutHandle, 0, 0, 0, &iosb, cl.Buffer, cl.Length - 1, 0, 0);
+        ntWriteFile_SYSCALL(stdOutHandle, 0, 0, 0, &iosb, cl.Buffer, cl.Length, 0, 0);
         return 1;
     }
 
@@ -38,9 +47,9 @@ int wmain(int argc, char *argv[]){
     char secondsIn[] = "5\0";
     int seconds = parseInput(secondsIn);
     char msg1[] = "Sleeping for";
-    char msg2[] = "second\n";
+    char msg2[] = " seconds\n";
     ntWriteFile_SYSCALL(stdOutHandle, 0, 0, 0, &iosb, msg1, sizeof(msg1) - 1, 0, 0);
-    ntWriteFile_SYSCALL(stdOutHandle, 0, 0, 0, &iosb, cl.Buffer, sizeof(cl.Buffer) - 1, 0, 0);
+    ntWriteFile_SYSCALL(stdOutHandle, 0, 0, 0, &iosb, cl.Buffer, cl.Length, 0, 0);
     ntWriteFile_SYSCALL(stdOutHandle, 0, 0, 0, &iosb, msg2, sizeof(msg2) - 1, 0, 0);
 
 
