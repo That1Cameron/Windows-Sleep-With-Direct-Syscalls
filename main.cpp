@@ -1,8 +1,9 @@
 #include "types.h"
 NTSTATUS sleep(int time){
     LARGE_INTEGER nano;
-    nano.QuadPart = time * 1000000000;
-    return ntDelayExecution_SYSCALL(false, &nano);
+    nano.QuadPart = -(LONGLONG)time * 10000000;;
+    int nanoTime = time * 1000000000;
+    return ntDelayExecution_SYSCALL(0, &nano);
 }
 
 int parseInput(char* input){
